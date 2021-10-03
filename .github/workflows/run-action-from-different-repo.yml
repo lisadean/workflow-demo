@@ -13,8 +13,9 @@ jobs:
           repository: lisadean/actions-monorepo-demo
           token: ${{ secrets.PRIVATE_REPO_ACCESS }}
           path: ./actions-monorepo-demo
-      - run: ls -la
+      - run: ls -la; $(cd actions-monorepo-demo; ls -la)
       - uses: actions/checkout@v2
+      - run: ls -la
       - uses: ./actions-monorepo-demo/action1@main
   # run-action2:
   #   name: Run Action 2
