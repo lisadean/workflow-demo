@@ -51,7 +51,7 @@ jobs:
           repository: lisadean/actions-monorepo-demo
           token: ${{ secrets.PRIVATE_REPO_ACCESS }}
           path: actions-monorepo-demo
-      - uses: ./actions-monorepo-demo/action1@main
+      - uses: ./actions-monorepo-demo/action1
   run-action2-private-repo:
     name: Run Action 2 from private repo
     runs-on: ubuntu-latest
@@ -61,4 +61,4 @@ jobs:
           repository: lisadean/actions-monorepo-demo
           token: ${{ secrets.PRIVATE_REPO_ACCESS }}
           path: actions-monorepo-demo
-      - uses: lisadean/actions-monorepo-demo/action2@main
+      - uses: lisadean/actions-monorepo-demo/action2
