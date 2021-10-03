@@ -13,10 +13,31 @@ jobs:
           repository: lisadean/actions-monorepo-demo
           token: ${{ secrets.PRIVATE_REPO_ACCESS }}
           path: ./actions-monorepo-demo
-      - run: ls -la; $(cd actions-monorepo-demo; ls -la)
+      - run: |
+          ls -la
+          cd actions-monorepo-demo
+          ls -la
+          cd ..
       - uses: actions/checkout@v2
       - run: ls -la
       - uses: ./actions-monorepo-demo/action1@main
+  test-directory-location:
+    name: Test directory location
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: lisadean/actions-monorepo-demo
+          token: ${{ secrets.PRIVATE_REPO_ACCESS }}
+          path: ./actions-monorepo-demo
+      - run: |
+          ls -la
+          cd actions-monorepo-demo
+          ls -la
+      - uses: actions/checkout@v2
+      - run: |
+          pwd
+          ls -la
   # run-action2:
   #   name: Run Action 2
   #   runs-on: ubuntu-latest
