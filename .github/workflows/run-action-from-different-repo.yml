@@ -61,4 +61,4 @@ jobs:
           repository: lisadean/actions-monorepo-demo
           token: ${{ secrets.PRIVATE_REPO_ACCESS }}
           path: actions-monorepo-demo
-      - uses: lisadean/actions-monorepo-demo/action2
+      - uses: ./actions-monorepo-demo/action2
