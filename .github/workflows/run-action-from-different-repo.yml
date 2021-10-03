@@ -1,0 +1,16 @@
+name: 'Run action from different repod'
+on:
+  push:
+    branches:
+      - main
+jobs:
+  run-action1:
+    name: Run Action 1
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lisadean/actions-monorepo-demo/action1@main
+  run-action2:
+    name: Run Action 2
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lisadean/actions-monorepo-demo/action2@main
