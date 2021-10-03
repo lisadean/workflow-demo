@@ -12,7 +12,7 @@ jobs:
         with:
           repository: lisadean/actions-monorepo-demo
           token: ${{ secrets.PRIVATE_REPO_ACCESS }}
-      - run: echo $(ls -la)
+      - run: ls -la
       # - uses: lisadean/actions-monorepo-demo/action1@main
   # run-action2:
   #   name: Run Action 2
