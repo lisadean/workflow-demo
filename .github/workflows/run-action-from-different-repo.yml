@@ -66,4 +66,5 @@ jobs:
     name: Display $GITHUB_ENV
     runs-on: ubuntu-latest
     steps:
+      - run: echo "var1=test" >> $GITHUB_ENV
       - run: echo $GITHUB_ENV
