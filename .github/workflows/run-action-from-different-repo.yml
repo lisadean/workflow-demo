@@ -62,3 +62,8 @@ jobs:
           token: ${{ secrets.PRIVATE_REPO_ACCESS }}
           path: actions-monorepo-demo
       - uses: ./actions-monorepo-demo/action2
+  display-github-env:
+    name: Display $GITHUB_ENV
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo $GITHUB_ENV
