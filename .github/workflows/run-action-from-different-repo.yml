@@ -14,8 +14,10 @@ jobs:
           token: ${{ secrets.PRIVATE_REPO_ACCESS }}
           path: ./actions-monorepo-demo
       - run: |
+          pwd
           ls -la
           cd actions-monorepo-demo
+          pwd
           ls -la
           cd ..
       - uses: actions/checkout@v2
@@ -31,8 +33,10 @@ jobs:
           token: ${{ secrets.PRIVATE_REPO_ACCESS }}
           path: ./actions-monorepo-demo
       - run: |
+          pwd
           ls -la
           cd actions-monorepo-demo
+          pwd
           ls -la
       - uses: actions/checkout@v2
       - run: |
