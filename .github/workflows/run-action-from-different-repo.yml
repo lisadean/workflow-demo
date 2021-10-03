@@ -68,3 +68,4 @@ jobs:
     steps:
       - run: echo "var1=test" >> $GITHUB_ENV
       - run: echo $GITHUB_ENV
+      - run: ${{ env.var1 }}
