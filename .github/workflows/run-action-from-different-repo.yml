@@ -4,6 +4,44 @@ on:
     branches:
       - main
 jobs:
+  test-directory-location-nested:
+    name: Test directory nested
+    runs-on: ubuntu-latest
+    steps:
+      #  Checkout repo workflow is running from
+      - uses: actions/checkout@v2
+      # Checkout private repo with actions
+      - uses: actions/checkout@v2
+        with:
+          repository: lisadean/actions-monorepo-demo
+          token: ${{ secrets.PRIVATE_REPO_ACCESS }}
+          path: actions-monorepo-demo
+      - run: |
+          pwd
+          ls -la
+          cd actions-monorepo-demo
+          ls -la
+  test-directory-location-side-by-side:
+    name: Test directory side by side
+    runs-on: ubuntu-latest
+    steps:
+      #  Checkout repo workflow is running from
+      - uses: actions/checkout@v2
+        with:
+          path: main
+      # Checkout private repo with actions
+      - uses: actions/checkout@v2
+        with:
+          repository: lisadean/actions-monorepo-demo
+          token: ${{ secrets.PRIVATE_REPO_ACCESS }}
+          path: actions-monorepo-demo
+      - run: |
+          pwd
+          ls -la
+          cd main
+          ls -la
+          cd ../actions-monorepo-demo
+          ls -la
   # run-action1:
   #   name: Run Action 1
   #   runs-on: ubuntu-latest
@@ -23,25 +61,6 @@ jobs:
   #     - uses: actions/checkout@v2
   #     - run: ls -la
   #     - uses: ./actions-monorepo-demo/action1@main
-  test-directory-location:
-    name: Test directory location
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          repository: lisadean/actions-monorepo-demo
-          token: ${{ secrets.PRIVATE_REPO_ACCESS }}
-          path: actions-monorepo-demo
-      - run: |
-          pwd
-          ls -la
-          cd actions-monorepo-demo
-          pwd
-          ls -la
-      - uses: actions/checkout@v2
-      - run: |
-          pwd
-          ls -la
   # run-action2:
   #   name: Run Action 2
   #   runs-on: ubuntu-latest
